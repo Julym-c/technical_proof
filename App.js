@@ -99,12 +99,12 @@ class Cinema extends Component {
             <Button 
               color='#c1a1d3'
               title="  ♥  "
-              onPress={() => alert('Has hecho un ♥')}
+              onPress={() => alert('Has hecho un me gusta')}
             />
             <Button 
               color='#c1a1d3'
               title="  +  "
-              onPress={() => alert('Has hecho un ♥')}
+              onPress={() => alert('Ver mas información')}
             />
             <Button
               borderRadius='20'
