@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 'auto',
     backgroundColor: '#fff3e6',
-    margin:15 
+    margin:15,
+    textAlign: 'center'
   },
   item: {
     padding: 10,
@@ -27,13 +28,14 @@ const styles = StyleSheet.create({
     marginBottom:15
   },
   title: {
-    color:'#222831',
-    fontSize:16,
-    fontWeight: 'bold'
+    color:'#312c51',
+    fontSize:20,
+    fontWeight: 'bold',
+    paddingBottom: 20
   },
   text: {
     color: '#393e46',
-    fontSize:12,
+    fontSize:14,
     paddingTop:5
   },
   fixToText: {
@@ -41,8 +43,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    width: 250
+    width: 250,
+    fontSize: 20
   },
+  textPrice: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#48426d'
+  },
+  textInventory : {
+    paddingTop: 5,
+    fontSize: 16,
+    fontWeight: 500
+  }
 });
 
 class Cinema extends Component {
@@ -62,19 +75,21 @@ class Cinema extends Component {
         return (
         <View  key={index} 
         style={styles.container}>
-          <Image style={styles.image} source={{uri: card.image}}/>
-          {/* texto */}
           <Text style={styles.title}>
             {card.title}
+          </Text>
+
+          <Image style={styles.image} source={{uri: card.image}}/>
+          {/* texto */}
+          
+          <Text style={styles.textPrice}>
+            Precio: ${card.price}
           </Text>
           <Text style={styles.text}>
             {card.genre}
           </Text>
-          <Text style={styles.text}>
-            {card.price}
-          </Text>
-          <Text style={styles.text}>
-            {card.inventory}
+          <Text style={styles.textInventory}>
+            Quedan: {card.inventory}
           </Text>
           <Text style={styles.text}>
             {card.date}
@@ -83,18 +98,21 @@ class Cinema extends Component {
           <View style={styles.fixToText}>
             <Button 
               color='#c1a1d3'
-              width= '100'
-              title="Me gusta"
-              onPress={() => Alert.alert('Left button pressed')}
+              title="  ♥  "
+              onPress={() => alert('Has hecho un ♥')}
+            />
+            <Button 
+              color='#c1a1d3'
+              title="  +  "
+              onPress={() => alert('Has hecho un ♥')}
             />
             <Button
               borderRadius='20'
-              color='#1a508b'
+              color='#c1a1d3'
               title="Comprar"
-              onPress={() => Alert.alert('Right button pressed')}
+              onPress={() => alert('Agregado')}
             />
           </View>
-          
         </View>
         )
       })
